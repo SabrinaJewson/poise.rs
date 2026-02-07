@@ -54,7 +54,8 @@ pub async fn on_error<U, E: Into<Box<dyn std::error::Error + Send + Sync>>>(
             ctx.send(
                 CreateReply::default()
                     .content(error)
-                    .allowed_mentions(mentions),
+                    .allowed_mentions(mentions)
+                    .ephemeral(true),
             )
             .await?;
         }
@@ -106,7 +107,8 @@ pub async fn on_error<U, E: Into<Box<dyn std::error::Error + Send + Sync>>>(
             ctx.send(
                 CreateReply::default()
                     .content(response)
-                    .allowed_mentions(mentions),
+                    .allowed_mentions(mentions)
+                    .ephemeral(true),
             )
             .await?;
         }
